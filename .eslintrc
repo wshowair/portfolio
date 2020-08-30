@@ -11,14 +11,66 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
+    /*****************************************************/
+    /******************* ES Lint Rules *******************/
+    /*****************************************************/
+    "array-callback-return": "warn",
+    "arrow-spacing":"warn",  //format
+    "block-spacing": "warn",  //format
+    "dot-location": ["warn", "property"], //format
+    "default-case": "off",
+    "eqeqeq": "warn",
+    "eol-last":"warn", //format
+    "keyword-spacing":"warn", //format
+    "max-lines": ["error", 200], //complexity
+    "max-len":["warn", { //format
+      "code": 120,
+      "ignoreUrls": true,
+      "ignoreTrailingComments": true
+    }],
+    "no-console": "warn",
+    "no-extend-native": "warn",
+    "no-extra-bind": "warn",
+    "no-loop-func": "warn",
+    "no-multi-spaces": "warn", //format
+    "no-multiple-empty-lines":["warn", {"max": 1}], //format
+    "no-new-wrappers": "warn",
+    "no-self-compare": "warn",
+    "no-sequences": "warn",
+    "no-throw-literal": "warn",
+    "no-trailing-spaces":"warn",
+    "no-useless-computed-key": "warn",
+    "no-useless-rename": "warn",
+    "no-whitespace-before-property": "warn", //format
+    "object-curly-newline": ["warn"], //format
+    "object-curly-spacing": ["error", "always"], //format
+    "rest-spread-spacing": ["warn", "never"], //format
+    "require-await": "warn", // Does all apps/libs need this rule?
+    "strict": ["warn", "never"],
+    "spaced-comment": ["warn", "always"], //format
+    "space-infix-ops":"warn", //format
+    "space-before-blocks": "warn", //format
+    "space-in-parens": ["warn", "never"], //format
+    "switch-colon-spacing":"warn", //format
+
+    /*****************************************************/
+    /************** Typescript ES Lint Rules *************/
+    /*****************************************************/
+
+    "@typescript-eslint/array-type": ["warn", {
+      "default": "array-simple"
+    }],
     "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/no-parameter-properties": "off",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+
+
     "@nrwl/nx/enforce-module-boundaries": [
       "error",
       {
@@ -28,7 +80,51 @@
           { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
         ]
       }
-    ]
+    ],
+
+    /*****************************************************/
+    /****************** ES/TS Lint Rules *****************/
+    /*****************************************************/
+
+    "brace-style": "off",
+    "@typescript-eslint/brace-style": ["warn"], //format
+    "comma-spacing": "off",
+    "@typescript-eslint/comma-spacing": ["warn"], //format
+    "no-dupe-class-members": "off",
+    "@typescript-eslint/no-dupe-class-members": "warn", //format
+    "no-magic-numbers": "off",
+    "@typescript-eslint/no-magic-numbers": [
+      "error", {
+        "ignoreEnums": true,
+        "ignoreReadonlyClassProperties": true,
+        "ignoreArrayIndexes": true,
+        "detectObjects": true
+    }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn",{
+      "ignoreRestSiblings": true
+    }],
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "warn",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "semi": "off",
+    "@typescript-eslint/semi": ["warn", "never"], //format
+    "quotes":"off",
+    "@typescript-eslint/quotes": ["warn", "single"], //format
+    "indent": "off",
+    "@typescript-eslint/indent": ["warn", 2, { //format
+      "SwitchCase": 1
+    }],
+    "space-before-function-paren":"off",
+    "@typescript-eslint/space-before-function-paren": "warn" //format
   },
   "overrides": [
     {

@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@portfolio/api-interfaces';
+import React, { useEffect, useState, FunctionComponent } from 'react'
+import { Message } from '@portfolio/api-interfaces'
 
-export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
+export const App: FunctionComponent<{}> = () => {
+  const [m, setMessage] = useState<Message>({ message: '' })
 
   useEffect(() => {
     fetch('/api')
       .then((r) => r.json())
-      .then(setMessage);
-  }, []);
+      .then(setMessage)
+  }, [])
 
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
+      <div style={ { textAlign: 'center' } }>
         <h1>Welcome to portfolio!</h1>
         <img
           width="450"
           src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
         />
       </div>
-      <div>{m.message}</div>
+      <div>{ m.message }</div>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

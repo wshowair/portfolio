@@ -7,6 +7,12 @@
         "@typescript-eslint/no-var-requires": "off",
         "no-undef": "off"
       }
+    },
+    {
+      "files": ["*.js", "*.po.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
     }
   ],
   "extends": ["plugin:cypress/recommended", "../../.eslintrc"],
