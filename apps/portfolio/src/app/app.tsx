@@ -12,14 +12,14 @@ export const App: FunctionComponent<{}> = () => {
 
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
+      <div style={ { textAlign: 'center' } }>
         <h1>Welcome to portfolio!</h1>
         <img
           width="450"
           src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
         />
       </div>
-      <div>{m.message}</div>
+      <div>{ m.message }</div>
     </>
   )
 }
