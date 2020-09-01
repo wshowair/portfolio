@@ -17,6 +17,7 @@ export const App: FunctionComponent<{}> = () => {
         <img
           width="450"
           src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
+          alt="nrwl"
         />
       </div>
       <div>{ m.message }</div>
