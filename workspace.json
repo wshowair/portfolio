@@ -68,7 +68,7 @@
               "apps/portfolio/tsconfig.app.json",
               "apps/portfolio/tsconfig.spec.json"
             ],
-            "maxWarnings": 0,
+            "maxWarnings": 1,
             "exclude": ["**/node_modules/**", "!apps/portfolio/**/*"]
           }
         },
