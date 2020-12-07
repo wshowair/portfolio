@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@portfolio.workspace/api-interfaces';
+import React, { useEffect, useState } from 'react'
+import { Message } from '@portfolio.workspace/api-interfaces'
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
+  const [m, setMessage] = useState<Message>({ message: '' })
 
   useEffect(() => {
     fetch('/api')
       .then((r) => r.json())
-      .then(setMessage);
-  }, []);
+      .then(setMessage)
+  }, [])
 
   return (
     <>
@@ -21,7 +21,7 @@ export const App = () => {
       </div>
       <div>{m.message}</div>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -4,4 +4,4 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/libs/api-interfaces',
   ],
-};
+}

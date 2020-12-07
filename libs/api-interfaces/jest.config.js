@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   displayName: 'api-interfaces',
   preset: '../../jest.preset.js',
@@ -11,4 +12,4 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/api-interfaces',
-};
+}

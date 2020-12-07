@@ -63,7 +63,8 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/portfolio/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": ["apps/portfolio/**/*.{ts,tsx,js,jsx}"],
+            "maxWarnings": 0
           }
         },
         "test": {
