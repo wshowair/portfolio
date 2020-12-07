@@ -1,7 +1,8 @@
-import { apiInterfaces } from './api-interfaces'
+import { Message } from './api-interfaces'
 
 describe('apiInterfaces', () => {
   it('should work', () => {
-    expect(apiInterfaces()).toEqual('api-interfaces')
+    const payload: Message = { message: 'Hello world' }
+    expect(payload.message).toBe('Hello world')
   })
 })
