@@ -15,9 +15,9 @@ export const App = () => {
       <div style={{ textAlign: 'center' }}>
         <h1>Welcome to portfolio!</h1>
         <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="nx logo"
+          width='450'
+          src='https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png'
+          alt='nx logo'
         />
       </div>
       <div>{m.message}</div>
