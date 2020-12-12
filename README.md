@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/showair.wael/portfolio/badges/main/pipeline.svg)](https://gitlab.com/showair.wael/portfolio/-/pipelines?ref=main) [![coverage report](https://gitlab.com/showair.wael/portfolio/badges/main/coverage.svg)](https://gitlab.com/showair.wael/portfolio/-/commits/main) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue&style=flat)](https://gitlab.com/showair.wael/portfolio/-/blob/main/LICENSE)
+
 # Portfolio.Workspace
 
 This project was generated using [Nx](https://nx.dev).
