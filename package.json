@@ -25,7 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "ci:lint": "nx workspace-lint && nx run-many --all --target=lint",
-    "ci:test": "nx run-many --all --target=test",
+    "ci:test": "CI=GitLab nx test",
     "ci:build": "nx run-many --all --target=build"
   },
   "private": true,

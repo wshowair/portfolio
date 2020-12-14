@@ -24,5 +24,11 @@ lint:
 build:
   script: yarn ci:build
 
-test:
-  script: yarn ci:test
+api-unit-tests:
+  script: yarn ci:test api
+
+ui-unit-tests:
+  script: yarn ci:test portfolio
+
+api-interfaces-tests:
+  script: yarn ci:test api-interfaces
