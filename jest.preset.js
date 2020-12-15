@@ -1,9 +1,12 @@
 const nxPreset = require('@nrwl/jest/preset')
 
+const coverageReporters =
+  process.env.CI === 'GitLab' ? ['text', 'cobertura'] : ['html']
+
 module.exports = {
   ...nxPreset,
   collectCoverage: true,
-  coverageReporters: [process.env.CI === 'GitLab' ? 'text' : 'html'],
+  coverageReporters,
   collectCoverageFrom: [
     '**/src/app/**/*.{ts,tsx}',
     '**/src/lib/**/*.{ts,tsx}',
