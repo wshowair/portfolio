@@ -31,10 +31,12 @@ api-unit-tests:
       cobertura: coverage/apps/api/cobertura-coverage.xml
 
 ui-unit-tests:
-  script: yarn ci:test portfolio
+  script: yarn ci:test portfolio --skip-nx-cache
   artifacts:
     reports:
       cobertura: coverage/apps/portfolio/cobertura-coverage.xml
+  after_script:
+    - bash <(curl -s https://codecov.io/bash)
 
 api-interfaces-tests:
   script: yarn ci:test api-interfaces
