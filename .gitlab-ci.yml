@@ -25,10 +25,12 @@ build:
   script: yarn ci:build
 
 api-unit-tests:
-  script: yarn ci:test api
+  script: yarn ci:test api --skip-nx-cache
   artifacts:
     reports:
       cobertura: coverage/apps/api/cobertura-coverage.xml
+  after_script:
+    - bash <(curl -s https://codecov.io/bash) -f coverage/apps/api/cobertura-coverage.xml
 
 ui-unit-tests:
   script: yarn ci:test portfolio --skip-nx-cache
@@ -36,7 +38,12 @@ ui-unit-tests:
     reports:
       cobertura: coverage/apps/portfolio/cobertura-coverage.xml
   after_script:
-    - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash) -f coverage/apps/portfolio/cobertura-coverage.xml
 
 api-interfaces-tests:
-  script: yarn ci:test api-interfaces
+  script: yarn ci:test api-interfaces --skip-nx-cache
+  artifacts:
+    reports:
+      cobertura: coverage/libs/api-interfaces/cobertura-coverage.xml
+  after_script:
+    - bash <(curl -s https://codecov.io/bash) -f coverage/libs/api-interfaces/cobertura-coverage.xml

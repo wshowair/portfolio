@@ -1,4 +1,6 @@
-[![pipeline status](https://gitlab.com/showair.wael/portfolio/badges/main/pipeline.svg)](https://gitlab.com/showair.wael/portfolio/-/pipelines/main/latest) [![coverage report](https://gitlab.com/showair.wael/portfolio/badges/main/coverage.svg)](https://gitlab.com/showair.wael/portfolio/-/graphs/main/charts) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue&style=flat)](https://gitlab.com/showair.wael/portfolio/-/blob/main/LICENSE)
+[![pipeline status][pipeline-badge]][pipeline-url]
+[![coverage status][coverage-badge]][coverage-url]
+[![license status][license-badge]][license-url]
 
 # Portfolio.Workspace
 
@@ -90,3 +92,12 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+<!-- References -->
+
+[pipeline-badge]: https://gitlab.com/wshowair/portfolio/badges/main/pipeline.svg
+[pipeline-url]: https://gitlab.com/wshowair/portfolio/-/pipelines/main/latest
+[coverage-badge]: https://codecov.io/gl/wshowair/portfolio/branch/main/graph/badge.svg?token=HDI25G74YH
+[coverage-url]: https://codecov.io/gl/wshowair/portfolio
+[license-badge]: https://img.shields.io/static/v1?label=license&message=MIT&color=blue&style=flat
+[license-url]: https://gitlab.com/wshowair/portfolio/-/blob/main/LICENSE
