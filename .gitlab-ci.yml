@@ -50,3 +50,11 @@ api-interfaces-tests:
       cobertura: coverage/libs/api-interfaces/cobertura-coverage.xml
   after_script:
     - bash <(curl -s https://codecov.io/bash) -f coverage/libs/api-interfaces/cobertura-coverage.xml
+
+staging:
+  stage: deploy
+  trigger:
+    project: wshowair/portfolio-cd
+    strategy: depend
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
