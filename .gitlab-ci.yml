@@ -23,6 +23,9 @@ lint:
 
 build:
   script: yarn ci:build
+  artifacts:
+    paths:
+      - dist
 
 api-unit-tests:
   script: yarn ci:test api --skip-nx-cache

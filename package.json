@@ -26,7 +26,7 @@
     "help": "nx help",
     "ci:lint": "nx workspace-lint && nx run-many --all --target=lint",
     "ci:test": "CI=GitLab nx test",
-    "ci:build": "nx run-many --all --target=build"
+    "ci:build": "nx run-many --all --target=build --prod"
   },
   "private": true,
   "dependencies": {
