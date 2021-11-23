@@ -1,4 +1,4 @@
-image: node:12
+image: node:14
 
 # Only run pipelines for merge requests or default branch or tag
 workflow:
@@ -24,37 +24,29 @@ install-dependencies:
         - yarn.lock
 
 lint:
-  script: yarn ci:lint
+  script: yarn lint
 
 build:
-  script: yarn ci:build
+  script: yarn build
   artifacts:
     paths:
       - dist
 
-api-unit-tests:
-  script: yarn ci:test api --skip-nx-cache
-  artifacts:
-    reports:
-      cobertura: coverage/apps/api/cobertura-coverage.xml
-  after_script:
-    - bash <(curl -s https://codecov.io/bash) -f coverage/apps/api/cobertura-coverage.xml
+# api-unit-tests:
+#   script: yarn ci:test api --skip-nx-cache
+#   artifacts:
+#     reports:
+#       cobertura: coverage/apps/api/cobertura-coverage.xml
+#   after_script:
+#     - bash <(curl -s https://codecov.io/bash) -f coverage/apps/api/cobertura-coverage.xml
 
 ui-unit-tests:
-  script: yarn ci:test portfolio --skip-nx-cache
+  script: yarn test
   artifacts:
     reports:
-      cobertura: coverage/apps/portfolio/cobertura-coverage.xml
+      cobertura: coverage/ui/cobertura-coverage.xml
   after_script:
-    - bash <(curl -s https://codecov.io/bash) -f coverage/apps/portfolio/cobertura-coverage.xml
-
-api-interfaces-tests:
-  script: yarn ci:test api-interfaces --skip-nx-cache
-  artifacts:
-    reports:
-      cobertura: coverage/libs/api-interfaces/cobertura-coverage.xml
-  after_script:
-    - bash <(curl -s https://codecov.io/bash) -f coverage/libs/api-interfaces/cobertura-coverage.xml
+    - bash <(curl -s https://codecov.io/bash) -f coverage/ui/cobertura-coverage.xml
 
 staging:
   stage: deploy

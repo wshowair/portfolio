@@ -1,0 +1,108 @@
+{
+  "root": true,
+  "ignorePatterns": ["node_modules", "coverage"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],  
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        /*****************************************************/
+        /***************** ES Lint Only Rules ****************/
+        /*****************************************************/
+        "array-callback-return": "warn",
+        "default-case": "warn",
+        "no-console": "warn",
+        "no-extend-native": "warn",
+        "max-lines": ["error", 200], //complexity
+        "no-loop-func": "warn",
+        "no-new-wrappers": "warn",
+        "no-self-compare": "warn",
+        "no-sequences": "warn",
+        "no-throw-literal": "warn",
+        "no-useless-computed-key": "warn",
+        "require-await": "warn", // Does all apps/libs need this rule?
+        "strict": ["warn", "never"],
+
+        /*****************************************************/
+        /************* ES/TS Extended Lint Rules *************/
+        /*****************************************************/
+
+        "no-dupe-class-members": "off",
+        "@typescript-eslint/no-dupe-class-members": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "ignoreRestSiblings": true
+          }
+        ],
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "warn",
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            "allowShortCircuit": true,
+            "allowTernary": true,
+            "allowTaggedTemplates": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {"project": "./tsconfig.json"},
+      "rules": {
+        "@typescript-eslint/array-type": [
+          "warn",
+          {
+            "default": "array-simple"
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+        "@typescript-eslint/prefer-nullish-coalescing": "error",
+        "@typescript-eslint/prefer-optional-chain": "error"
+      }
+    },
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "react/jsx-boolean-value": "warn",
+        "react/jsx-fragments": ["warn", "syntax"],
+        "react/jsx-handler-names": "warn",
+        "react/jsx-no-bind": "warn",
+        "react/function-component-definition": [
+          "warn",
+          {
+            "namedComponents": "arrow-function"
+          }
+        ],
+        "react/no-access-state-in-setstate": "warn",
+        "react/no-array-index-key": "warn",
+        "react/no-redundant-should-component-update": "warn",
+        "react/no-unsafe": "error",
+        "react/no-unused-state": "warn",
+        "react/prefer-es6-class": ["warn", "always"],
+        "react/prefer-stateless-function": "warn",
+        "react/require-default-props": "warn",
+        "react/self-closing-comp": "warn"
+      }
+    }
+  ]
+}
