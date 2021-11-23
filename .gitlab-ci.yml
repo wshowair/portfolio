@@ -30,7 +30,7 @@ build:
   script: yarn build
   artifacts:
     paths:
-      - dist
+      - '.next'
 
 # api-unit-tests:
 #   script: yarn ci:test api --skip-nx-cache
