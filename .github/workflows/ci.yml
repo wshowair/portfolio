@@ -14,4 +14,4 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag portfolio:$GITHUB_SHA
+      run: docker build . --file Dockerfile --tag portfolio:${{ github.event.pull_request.head.sha }}
