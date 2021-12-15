@@ -7,20 +7,26 @@ on:
     branches: [ main ]
 
 jobs:
-  # dockerizePR:
-  #   if: github.event_name == 'pull_request'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #     with:
-  #       ref: ${{ github.event.pull_request.head.sha }}
-  #   - name: Build the Docker image
-  #     run: docker build . --file Dockerfile --tag portfolio:${{ github.event.pull_request.head.sha }}
+  build:
+    env:
+      NODE_VERSION: 14.15.1
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run lint
+    - run: npm run build
+    - run: npm test
 
   dockerize:
     env: 
       SHA: ${{github.event.pull_request.head.sha || github.sha}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Set SHA_SHORT
       run: |
