@@ -21,7 +21,7 @@ jobs:
     env: 
       SHA: ${{github.event.pull_request.head.sha || github.sha}}
       # SHA_SHORT: ${{}}
-    if: github.event_name == 'push' && github.ref_name == 'main'
+    # if: github.event_name == 'push' && github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
