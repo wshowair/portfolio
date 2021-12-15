@@ -9,19 +9,19 @@ on: push
 
 jobs:
   dockerizePR:
-    if: $GITHUB_EVENT_NAME === 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      if: $GITHUB_EVENT_NAME == 'pull_request'
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:${{ github.event.pull_request.head.sha }}
 
   dockerize:
-    if: $GITHUB_EVENT_NAME === 'push' && $GITHUB_REF_NAME === 'pipeline'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      if: $GITHUB_EVENT_NAME == 'push' && $GITHUB_REF_NAME === 'pipeline'
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:$GITHUB_SHA
