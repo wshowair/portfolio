@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      if: $GITHUB_EVENT_NAME == 'pull_request'
+      if: github.event_name == 'pull_request'
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Build the Docker image
@@ -22,6 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      if: $GITHUB_EVENT_NAME == 'push' && $GITHUB_REF_NAME === 'pipeline'
+      if: github.event_name == 'push' && github.ref_name == 'pipeline'
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:$GITHUB_SHA
