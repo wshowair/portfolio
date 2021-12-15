@@ -8,19 +8,19 @@ on:
 
 jobs:
   dockerizePR:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      if: github.event_name == 'pull_request'
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:${{ github.event.pull_request.head.sha }}
 
   dockerize:
+    if: github.event_name == 'push' && github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:$GITHUB_SHA
-      if: github.event_name == 'push' && github.ref_name == 'main'
