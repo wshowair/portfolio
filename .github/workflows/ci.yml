@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  lint:
     env:
       NODE_VERSION: 14.15.1
     runs-on: ubuntu-20.04
@@ -20,11 +20,37 @@ jobs:
         cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: yarn lint
-    - run: yarn build
+
+  test:
+    env:
+      NODE_VERSION: 14.15.1
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
     - run: yarn test
 
+  build:
+    env:
+      NODE_VERSION: 14.15.1
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
+    - run: yarn build
+
   dockerize:
-    needs: build
+    needs: [lint, test, build]
     env: 
       SHA: ${{github.event.pull_request.head.sha || github.sha}}
     runs-on: ubuntu-20.04
