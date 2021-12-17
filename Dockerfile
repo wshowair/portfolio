@@ -12,6 +12,8 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build
+# Prune dev dependencies
+RUN yarn install --production --frozen-lockfile
 
 # Production image, copy all the files and run next
 FROM node:14.15.1-alpine3.12 AS runner
