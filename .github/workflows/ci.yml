@@ -12,7 +12,7 @@ jobs:
       NODE_VERSION: 14.15.1
     runs-on: ubuntu-20.04
     container:
-      image: node:${{ env.NODE_VERSION }}-alpine3.12
+      image: 'node:${{ env.NODE_VERSION }}-alpine3.12'
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ env.NODE_VERSION }}
@@ -31,7 +31,7 @@ jobs:
       SHA: ${{github.event.pull_request.head.sha || github.sha}}
     runs-on: ubuntu-20.04
     container:
-      image: node:${{ env.NODE_VERSION }}-alpine3.12
+      image: 'node:${{ env.NODE_VERSION }}-alpine3.12'
     steps:
     - name: Set SHA_SHORT
       run: |
