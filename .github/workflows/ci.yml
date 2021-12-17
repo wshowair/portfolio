@@ -8,15 +8,15 @@ on:
 
 jobs:
   build:
+    env:
+      NODE_VERSION: 14.15.1
     runs-on: ubuntu-20.04
-    container:
-      image: node:14.15.1-alpine3.12
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 14.15.1
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v2
       with:
-        node-version: 14.15.1
+        node-version: ${{ env.NODE_VERSION }}
         cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: yarn lint
@@ -28,14 +28,10 @@ jobs:
     env: 
       SHA: ${{github.event.pull_request.head.sha || github.sha}}
     runs-on: ubuntu-20.04
-    container:
-      image: node:14.15.1-alpine3.12
     steps:
     - name: Set SHA_SHORT
       run: |
         echo "SHA_SHORT=$(echo ${{env.SHA}} | cut -c1-7 )" >> $GITHUB_ENV
     - uses: actions/checkout@v2
-    - name: install prod dependencies
-      run: yarn install --production --frozen-lockfile # prune dev dependencies
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag portfolio:${{env.SHA_SHORT}}
