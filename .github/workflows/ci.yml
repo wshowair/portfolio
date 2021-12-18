@@ -7,57 +7,53 @@ on:
     branches: [ main ]
 
 jobs:
-  # build:
-  #   env:
-  #     NODE_VERSION: 14.15.1
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Use Node.js ${{ env.NODE_VERSION }}
-  #     uses: actions/setup-node@v2
-  #     with:
-  #       node-version: ${{ env.NODE_VERSION }}
-  #       cache: 'yarn'
-  #   - run: yarn install --frozen-lockfile
-  #   - run: yarn lint
-  #   - run: yarn build
-  #   - run: yarn test
+  build:
+    env:
+      NODE_VERSION: 14.15.1
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
+    - run: yarn lint
+    - run: yarn build
+    - run: yarn test
 
   dockerize:
-    # needs: build
+    needs: build
     env: 
-      SHA: ${{github.event.pull_request.head.sha || github.sha}}
-      REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
+      CONTAINER_REGISTRY: ghcr.io
+      CONTAINER_REPOSITORY: ${{ github.repository }}
     runs-on: ubuntu-20.04
     permissions:
       contents: read
       packages: write
     steps:
-    - name: Set SHA_SHORT
-      run: |
-        echo "SHA_SHORT=$(echo ${{env.SHA}} | cut -c1-7 )" >> $GITHUB_ENV
     - name: Log in to the Container registry
-      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      uses: docker/login-action@v1
       with:
-        registry: ${{ env.REGISTRY }}
+        registry: ${{ env.CONTAINER_REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Extract metadata (tags, labels) for Docker
       id: meta
-      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      uses: docker/metadata-action@v3
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        images: ${{ env.CONTAINER_REGISTRY }}/${{ env.CONTAINER_REPOSITORY }}
         labels: |
           org.opencontainers.image.description=deployable image for my portfolio
-    - name: Build Docker image
-      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+    - name: Build Container image
+      uses: docker/build-push-action@v2
       with:
         push: false
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
-    - name: Push Docker image
-      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        # tags: ${{ steps.meta.outputs.tags }}
+        # labels: ${{ steps.meta.outputs.labels }}
+    - name: Push Container image
+      uses: docker/build-push-action@v2
       with:
         push: ${{ github.event_name == 'pull_request' }}
         tags: ${{ steps.meta.outputs.tags }}
