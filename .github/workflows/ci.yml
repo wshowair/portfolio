@@ -26,12 +26,33 @@ jobs:
   dockerize:
     needs: build
     env: 
-      SHA: ${{github.event.pull_request.head.sha || github.sha}}
+      CONTAINER_REGISTRY: ghcr.io
+      CONTAINER_REPOSITORY: ${{ github.repository }}
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      packages: write
     steps:
-    - name: Set SHA_SHORT
-      run: |
-        echo "SHA_SHORT=$(echo ${{env.SHA}} | cut -c1-7 )" >> $GITHUB_ENV
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag portfolio:${{env.SHA_SHORT}}
+    - name: Log in to the Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.CONTAINER_REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ${{ env.CONTAINER_REGISTRY }}/${{ env.CONTAINER_REPOSITORY }}
+        labels: |
+          org.opencontainers.image.description=deployable image for my portfolio
+    - name: Build Container image
+      uses: docker/build-push-action@v2
+      with:
+        push: false
+    - name: Push Container image
+      uses: docker/build-push-action@v2
+      with:
+        push: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
