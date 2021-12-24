@@ -52,13 +52,11 @@ jobs:
           type=ref,event=tag
           type=ref,event=pr
           type=sha
-    - uses: actions/checkout@v2
     - name: Build Container image
-      run: docker buildx build -f Dockerfile -t porto:arm --platform linux/arm64 .
-      # uses: docker/build-push-action@v2
-      # with:
-      #   platforms: linux/arm64
-      #   push: false
+      uses: docker/build-push-action@v2
+      with:
+        platforms: linux/arm64
+        push: false
     - name: Push Container image
       uses: docker/build-push-action@v2
       with:
