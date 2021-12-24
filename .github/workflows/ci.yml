@@ -24,7 +24,7 @@ jobs:
     - run: yarn test
 
   dockerize:
-    needs: build
+    # needs: build
     env:
       CONTAINER_REGISTRY: ghcr.io
       CONTAINER_REPOSITORY: ${{ github.repository }}
