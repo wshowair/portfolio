@@ -5,6 +5,6 @@ import Home from '@pages/index'
 describe('Home page', () => {
   it('renders', () => {
     render(<Home />)
-    expect(screen.queryByText('Homepage works')).toBeInTheDocument()
+    expect(screen.queryByText('Hello World')).toBeInTheDocument()
   })
 })

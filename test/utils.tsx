@@ -2,11 +2,9 @@ import React, { ReactElement } from 'react'
 
 import { render } from '@testing-library/react'
 import type { RenderOptions, RenderResult } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '@styles'
 
 const Providers = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return <>{children}</>
 }
 
 // type CustomRenderOptions = Omit<RenderOptions, 'queries'>
