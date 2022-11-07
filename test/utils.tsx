@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 import { render } from '@testing-library/react'
 import type { RenderOptions, RenderResult } from '@testing-library/react'
 
-const Providers = ({ children }) => {
+const Providers = ({ children }: { children: ReactElement }) => {
   return <>{children}</>
 }
 
