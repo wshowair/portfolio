@@ -19,11 +19,20 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@styles": ["styles"],
-      "@api/*":["pages/api/*"],
-      "@test/*": ["test/*"],
-      "@pages/*":["pages/*"]
-    }
+      "@styles": [
+        "styles"
+      ],
+      "@api/*": [
+        "pages/api/*"
+      ],
+      "@test/*": [
+        "test/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ]
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
