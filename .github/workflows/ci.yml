@@ -19,5 +19,4 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
     - run: npm ci 
     - run: npm run lint
-    - run: npm run test
     - run: npm run build

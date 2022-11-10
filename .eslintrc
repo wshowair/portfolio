@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["node_modules", "coverage"],
+  "ignorePatterns": ["node_modules", "coverage", "dist"],
   "env": {
     "es6": true,
     "browser": true,
@@ -13,7 +13,7 @@
   ],  
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "next",
+    "plugin:astro/recommended",
     "plugin:prettier/recommended"
   ],
   "overrides": [
