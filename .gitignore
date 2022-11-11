@@ -1,11 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/.next/
 /out/
 
 # production
-/build
+/dist
 
 # dependencies
 /node_modules
@@ -41,11 +40,6 @@ yarn-error.log*
 *.pem
 Thumbs.db
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# vercel
-.vercel
+# environment variables
+.env
+.env.production

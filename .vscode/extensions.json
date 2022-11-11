@@ -1,8 +1,9 @@
 {
   "recommendations": [
+    "astro-build.astro-vscode",
     "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
-    "firsttris.vscode-jest-runner"
   ]
 }
