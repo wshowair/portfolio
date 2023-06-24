@@ -1,0 +1,79 @@
+<div class='ft-base'>
+  <p class='ft-600 ft-xs w'>
+    So I pride myself in designing and developing the application code
+    meticulously in a way that is
+  </p>
+  <div class='flx flx-wrp justify-contents-center spc'>
+    <div class='relative card chng w-100'>
+      <img src='/changeable.svg' class='absolute' />
+      <div class='absolute ft-700 ft-xs txt-pos end'>Changeable</div>
+    </div>
+    <div class='relative card w-100'>
+      <img src='/testable.svg' class='absolute' />
+      <div class='absolute ft-700 ft-xs txt-pos'>Testable</div>
+    </div>
+    <div class='relative card undr w-100'>
+      <img src='/understandable.svg' class='absolute' />
+      <div class='absolute ft-700 ft-xs txt-pos'>Understandable</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .spc {
+    --spacing: 4rem;
+
+    gap: var(--spacing);
+    margin-top: var(--spacing);
+  }
+
+  .w {
+    width: clamp(50%, 63rem - 100vw, 80%);
+  }
+
+  .card {
+    background: no-repeat;
+    background-size: contain;
+    max-width: 33.625rem; /* 538px */
+    aspect-ratio: 1.5284;
+    background-image: url('/rect-sm.svg');
+  }
+
+  .card.undr {
+    background-image: url('/rect-sm-v2.svg');
+  }
+
+  .card.chng {
+    background-image: url('/rect-sm-v3.svg');
+  }
+
+  .card:first-child > img {
+    top: -9%;
+    left: -3%;
+    width: 60%;
+  }
+
+  .card:nth-child(2) > img {
+    right: 0;
+    top: -24%; /* 24% of 352px (image height on desktop) */
+    width: 51.67%; /* 278px/538px */
+  }
+
+  .card:last-child > img {
+    top: -15%;
+    left: 3.72%; /* 20px/538px */
+    width: 68.03%; /* 366px/538px */
+  }
+
+  .txt-pos {
+    --txt-start-spacing: 9.29%; /* 50px/538px */
+
+    left: var(--txt-start-spacing);
+    bottom: 10.22%; /* 55px/538px */
+  }
+
+  .txt-pos.end {
+    width: calc(100% - 2 * var(--txt-start-spacing));
+    text-align: end;
+  }
+</style>

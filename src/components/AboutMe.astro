@@ -1,0 +1,78 @@
+<div>
+  <h2 class='ft-base flx flx-wrp flx-col w-fit-content h-max'>
+    <div class='ft-700 ft-xl'>The Best</div>
+    <div class='ft-700 ft-xl acc m'>About me</div>
+  </h2>
+  <div class='flx flx-wrp spc-btwn'>
+    <div class='card px-xl flx flx-col spc-arnd ft-base algn-slf-start'>
+      <strong class='ft-xxs'>Code<br /><span class='fg'>Crafter</span></strong>
+      <img class='algn-slf-end dim' src='/coding.svg' />
+    </div>
+    <div class='card px-xl flx flx-col spc-arnd ft-base algn-slf-center'>
+      <strong class='ft-xxs'
+        >Years of<br /><span class='fg'>Experience</span>
+      </strong>
+      <div class='ft-md ft-700 algn-slf-end dim'>
+        <span class='acc'>+</span><span class='acc-pale'>8</span>
+      </div>
+    </div>
+    <div class='card px-xl flx flx-col spc-arnd ft-base'>
+      <strong class='ft-xxs'>Pixel<br /><span class='fg'>Perfect</span></strong>
+      <img class='algn-slf-end dim' src='/pixels.svg' />
+    </div>
+  </div>
+</div>
+
+<style>
+  .h-max {
+    max-height: 16.5625rem; /* 265px */
+  }
+
+  .m {
+    /**
+      * line-height for the best div = 1.5 * font size (  7% of parent font size) = (7% of min(viewport, 1512px))
+      * hence the margin top value should be set.
+      */
+
+    /* margin-top: clamp(0px, 100vw - 1044px, 1.5 * min(7vw, 7/100 * 1512px)); */
+    margin-top: clamp(
+      0px,
+      100vw - 65.25rem,
+      1.5 * min(7vw, 7/100 * var(--max-content-width))
+    );
+
+    /* margin-top: clamp(0px, 100vw - 1045px, 1.5 * 7%); */
+
+    /* margin-top: clamp(0px, 100vw - 1045px, 1.5 * 7% * 2); */
+  }
+
+  h2 {
+    margin-bottom: clamp(0px, 65.25rem - 100vw, 2rem);
+  }
+</style>
+
+<style>
+  .card {
+    /* width: clamp(19%, 65.25rem - 100vw, 100%); */
+    width: 19%;
+    min-width: 200px;
+    aspect-ratio: 1;
+    background: #333;
+    box-shadow: -1.77rem -1.77rem 3.55rem #3e3e3e,
+      1.77rem 1.77rem 3.55rem #1e1e1e;
+    border-radius: 2.25rem;
+  }
+
+  .fg {
+    color: rgb(255 255 255 / 50%);
+  }
+
+  .dim {
+    width: 41.5%;
+    aspect-ratio: 1.25/1;
+  }
+
+  .card:last-child {
+    margin-top: calc(9.5% + 5.75rem); /* 92px */
+  }
+</style>

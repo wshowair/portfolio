@@ -26,6 +26,13 @@
     "typescriptreact",
   ],
   "stylelint.validate": ["css", "postcss", "astro"],
-  "stylelint.snippet": ["css", "postcss", "astro"]
+  "stylelint.snippet": [
+    "css",
+    "postcss",
+    "astro"
+  ],
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
 
 }
