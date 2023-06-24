@@ -1,23 +1,20 @@
 ---
 import HeaderLink from './HeaderLink.astro'
-import { SITE_TITLE } from '../config'
 ---
 
-<header>
-  <h2>
-    {SITE_TITLE}
-  </h2>
-  <nav>
-    <HeaderLink href='/'>Home</HeaderLink>
+<header class='py-sm relative'>
+  <nav class='ft-600 flx spc-btwn'>
+    <HeaderLink href='/'><img src='/me-sm.png' />Wael Showair</HeaderLink>
     <HeaderLink href='#contact'>Contact</HeaderLink>
   </nav>
 </header>
 <style>
   header {
-    margin: 0 0 2em;
+    height: var(--header-ht);
+    z-index: 1;
   }
 
-  h2 {
-    margin: 0.5em 0;
+  img {
+    width: var(--r44);
   }
 </style>

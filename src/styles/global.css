@@ -1,79 +1,232 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+ **************************************************************************
+  																	Variables
+ **************************************************************************
+*/
+
+:root{
+	--max-content-width: 94.5rem; /* 1512px */
+	--bg-color: #333;
+	--fg-color: #FFF;
+	--accent-color:  #FFCD45;
+	--accent-color-pale: #FBE7B5;	
+	--font-family: 'Plus Jakarta Sans', system-ui;
+	--r16: 1rem;
+  --r20: 1.25rem;
+  --r24: 1.5rem;
+	--r44: calc(44/16 * 1rem);
+	--r85: calc(85/16 * 1rem);
+	--header-ht: var(--r85);
+}
+
+@font-face {
+	src: url('/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+  font-family: 'Plus Jakarta Sans';
+  font-weight: 1 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ **************************************************************************
+  Josh's Custom CSS Reset https://www.joshwcomeau.com/css/custom-css-reset/
+ **************************************************************************
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+	background-color: var(--bg-color);
+	color: var(--fg-color);
+	font-family: var(--font-family);
+	font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	color: #222;
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
 }
 
-a {
-	color: #3273dc;
+input, button, textarea, select {
+  font: inherit;
 }
 
-nav a {
-	margin-right: 10px;
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
 }
 
-textarea {
+#root {
+  isolation: isolate;
+}
+
+
+/**
+	**************************************************************************
+															utility styles
+	**************************************************************************
+	**/
+.acc {
+	color: var(--accent-color)
+}
+
+.acc-pale {
+	color: var(--accent-color-pale);
+}
+
+.ft-400 {
+	font-weight: 400;
+}
+
+.ft-500 {
+	font-weight: 500;
+}
+
+.ft-600 {
+	font-weight: 600;
+}
+
+.ft-700 {
+	font-weight: 700;
+}
+
+.ft-base {
+	font-size: min(100vw, var(--max-content-width));
+}
+
+.ft-xxs {
+	font-size: max(2%, 1rem); /* 32px */
+}
+
+.ft-xs {
+	font-size: max(2.5%, 1rem); /* 38px */
+}
+
+
+.ft-sm {
+	font-size: max(3%,1.25rem); /* 46px */
+}
+
+.ft-md {
+	font-size: 5%; /* 68px */
+}
+
+.ft-lg {
+	font-size: 6%; /* 90px */
+}
+
+.ft-xl {
+	font-size: 7%; /* 106px */
+}
+
+.ft-xxl {
+	font-size: 10%; /* 144px */
+}
+
+.px-xs {
+	padding: 0 var(--r16);
+}
+
+.py-xs {
+	padding: var(--r16) 0;
+}
+
+.px-xl {
+	padding: 0 var(--r44);
+}
+
+.py-sm {
+	padding: var(--r20) 0;
+}
+
+.flx{
+	display: flex;
+}
+
+.flx-col {
+	flex-direction: column;
+}
+
+.flx-wrp {
+	flex-wrap: wrap;
+}
+
+.spc-btwn {
+	justify-content: space-between;
+}
+
+.spc-arnd {
+	justify-content: space-around;
+}
+
+.algn-items-center {
+	align-items: center;
+}
+
+.algn-slf-start {
+	align-self: flex-start;
+}
+
+.algn-slf-center {
+	align-self: center;
+}
+
+.algn-slf-end {
+	align-self: flex-end;
+}
+
+.justify-contents-center {
+	justify-content: center;
+}
+
+.gap-xxl {
+	gap: 500px;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+
+.w-fit-content {
+	width: fit-content;
+}
+
+.container {
+	max-width: var(--max-content-width);
+	margin: 0 auto;
+}
+
+.txt-center {
+	text-align: center;
+}
+
+.z-1 {
+	z-index: -1;
+}
+
+.w-100 {
 	width: 100%;
-	font-size: 16px;
 }
 
-input {
-	font-size: 16px;
-}
-
-content {
-	line-height: 1.6;
-}
-
-table {
-	width: 100%;
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
-}
-
-pre {
-	padding: 1rem;
-}
-
-pre > code {
-	all: unset;
-}
-
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0 2px 20px;
-	margin: 0;
-	font-style: italic;
+.dbg {
+	outline: 1px solid red;
 }
