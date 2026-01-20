@@ -1,64 +1,54 @@
-# Astro Starter Kit: Blog
+# Portfolio Website
 
-```
-npm create astro@latest -- --template blog
-```
+A simple, static portfolio website built with pure HTML and CSS.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- ✅ Pure HTML/CSS - No frameworks or build tools required
+- ✅ Minimal and clean design
+- ✅ Responsive layout
+- ✅ SEO-friendly with meta tags and Open Graph data
+- ✅ Fast and lightweight
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```
-├── public/
+├── public/              # Static assets (images, fonts, SVGs)
 ├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   └── styles/         # CSS stylesheets
+├── .github/
+│   └── workflows/      # GitHub Actions for deployment
+├── index.html          # Main HTML file
+├── package.json        # Dev dependencies for linting
+└── README.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+All static assets like images, fonts, and SVGs are in the `public/` directory.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+| Command           | Action                                        |
+| :---------------- | :-------------------------------------------- |
+| `npm install`     | Installs dev dependencies (linting tools)     |
+| `npm run dev`     | Starts local dev server at `localhost:3000`   |
+| `npm run preview` | Preview site locally at `localhost:4173`      |
+| `npm run lint`    | Lint CSS files                                |
 
-## 👀 Want to learn more?
+## 🌐 Deployment
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch.
 
-## Credit
+The deployment workflow is configured in `.github/workflows/cd.yml`.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## 💻 Development
+
+1. Clone the repository
+2. Run `npm install` to install linting dependencies
+3. Run `npm run dev` to start the development server
+4. Open `http://localhost:3000` in your browser
+
+## 📝 License
+
+See LICENSE file for details.

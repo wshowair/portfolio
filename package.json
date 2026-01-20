@@ -1,39 +1,22 @@
 {
-  "name": "@example/blog",
+  "name": "@wael/portfolio",
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "astro": "astro",
-    "build": "astro build",
-    "dev": "astro dev",
-    "lint:astro": "eslint --max-warnings=0 --ext=.astro,.js,.ts,.tsx .",
-    "lint:css": "stylelint --max-warnings=0 \"**/*.{css,astro}\"",
-    "lint": "npm run lint:astro && npm run lint:css",
-    "start": "astro dev",
-    "preview": "astro preview",
-    "verify": "npm run lint && npm run build"
+  "engines": {
+    "node": ">=24.13.0"
   },
-  "dependencies": {
-    "@astrojs/mdx": "^0.11.5",
-    "@astrojs/rss": "^1.0.3",
-    "@astrojs/sitemap": "^1.0.0",
-    "astro": "^1.6.0"
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "build": "echo 'No build needed for static HTML'",
+    "lint:css": "stylelint --max-warnings=0 \"**/*.css\"",
+    "lint": "npm run lint:css",
+    "preview": "npx http-server . -p 4173"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-astro": "^0.21.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "postcss-html": "^1.5.0",
-    "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.7.0",
-    "stylelint": "^14.14.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-config-standard": "^29.0.0"
+    "prettier": "^3.4.2",
+    "stylelint": "^16.13.0",
+    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-standard": "^36.0.1"
   }
 }
