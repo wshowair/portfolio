@@ -4,8 +4,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always"
   },
   "files.exclude": {
     "**/.git": true,
@@ -15,24 +15,10 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "prettier.documentSelectors": ["**/*.astro"],
-  "eslint.validate": [
-    // You have to configure the eslint.validate option of the extension to check 
-    // .astro files, because the extension targets only *.js or *.jsx files by default.
-    "javascript",
-    "javascriptreact",
-    "astro", // Enable .astro
-    "typescript",
-    "typescriptreact",
-  ],
-  "stylelint.validate": ["css", "postcss", "astro"],
+  "stylelint.validate": ["css", "postcss"],
   "stylelint.snippet": [
     "css",
     "postcss",
-    "astro"
   ],
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  }
 
 }
